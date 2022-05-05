@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="content">
+		<!-- TABELA -->
+		<p:messages id="messages" closable="true">
+				<p:autoUpdate />
+			</p:messages>
+		<h:form>
+			<div class="card">
+				<p:dataTable var="setup" value="#{setupBean.list}">
+					<p:column headerText="Image">
+					<img src="#{request.contextPath}/#{setup.imagePath}" style="width: 150px"/>
+					</p:column>
+					
+					<p:column headerText="ID">
+						<h:outputText value="#{setup.id}" />
+					</p:column>
+
+					<p:column headerText="Name">
+						<h:outputText value="#{setup.name}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{setup.description}" />
+					</p:column>
+
+					<p:column headerText="Price">
+						<h:outputText value="#{setup.price}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+
+
+</html>
